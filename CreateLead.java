@@ -36,13 +36,13 @@ public class CreateLead extends ProjectSpecificMethods{
 		@And ("Type FirstName as (.*)$")
 		public void typeFirstName(String firstName)
 		{
-			driver.findElement(By.id("createLeadForm_firstName")).sendKeys("Raja");
+			driver.findElement(By.id("createLeadForm_firstName")).sendKeys(firstName);
 		}
 		
 		@And ("Type LastName as (.*)$")
 		public void typeLastName(String lastName)
 		{
-			driver.findElement(By.id("createLeadForm_lastName")).sendKeys("Sheeba");
+			driver.findElement(By.id("createLeadForm_lastName")).sendKeys(lastName);
 		}
 		
 		@When ("Click CreateLead button")
