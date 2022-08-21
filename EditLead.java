@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 
 public class EditLead extends ProjectSpecificMethods{
 	
-	String newCompany = "IBM";
+	String companyName;
 	
 	@And ("Click Find Leads Link")
 	public void clickFindLeads()
@@ -44,6 +44,7 @@ public class EditLead extends ProjectSpecificMethods{
 	@And ("Change the company name as (.*)$")
 	public void updateCompanyName(String newCompany)
 	{
+		companyName = newCompany;
 		driver.findElement(By.id("updateLeadForm_companyName")).clear();
 		driver.findElement(By.id("updateLeadForm_companyName")).sendKeys(newCompany);
 	}
@@ -57,9 +58,9 @@ public class EditLead extends ProjectSpecificMethods{
 	@Then ("Confirm the changed name appears")
 	public void confirmNameUpdated()
 	{
-		if (driver.findElement(By.id("viewLead_companyName_sp")).getText().contains(newCompany))
+		if (driver.findElement(By.id("viewLead_companyName_sp")).getText().contains(companyName))
 		{
-			System.out.println("Company name is updated as "+newCompany);
+			System.out.println("Company name is updated as "+companyName);
 		}
 		else
 		{
